@@ -1,0 +1,8 @@
+﻿array(
+  "applications" => ["hpksoftware.sinsin", ],
+  "filter"=>array("imei"=>["352645074786100"]),
+  "notification" => array(
+    "title" => "پیام تست",
+    "content" => "مهندس پیکرستان",
+  )
+);

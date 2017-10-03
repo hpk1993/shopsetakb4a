@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="hpksoftware.setak"
+	android:versionCode="1"
+	android:versionName="1.00"
+	android:installLocation="internalOnly">
+	
+	<uses-sdk android:minSdkVersion="11" android:targetSdkVersion="21"/>
+	<supports-screens android:largeScreens="true" 
+	    android:normalScreens="true" 
+	    android:smallScreens="true" 
+	    android:anyDensity="true"/>
+	<permission
+	        android:name="hpksoftware.setak.permission.C2D_MESSAGE"
+	        android:protectionLevel="signature" />
+	<uses-permission android:name="hpksoftware.setak.permission.C2D_MESSAGE" />
+	
+	        <!-- Optional permissions -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<application
+		android:icon="@drawable/icon"
+		android:label="ستاک"
+		android:theme="@style/MyAppTheme">
+		
+		<receiver android:name="co.ronash.pushe.receiver.UpdateReceiver" >
+		<intent-filter>
+		    <action android:name="android.intent.action.PACKAGE_REPLACED" />
+		
+		    <data
+		            android:path="hpksoftware.setak"
+		            android:scheme="package" />
+		</intent-filter>
+		</receiver>
+		<receiver
+		android:name="com.google.android.gms.gcm.GcmReceiver"
+		android:exported="true"
+		android:permission="com.google.android.c2dm.permission.SEND" >
+		<intent-filter>
+		    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+		
+		    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+		
+		    <category android:name="hpksoftware.setak" />
+		</intent-filter>
+		</receiver>
+		<service
+		android:name="co.ronash.pushe.service.GcmService"
+		android:exported="false" >
+		<intent-filter>
+		    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+		</intent-filter>
+		</service>
+		
+		<receiver
+		android:name="co.ronash.pushe.receiver.FallbackGcmNetworkManagerReceiver"
+		android:exported="true" >
+		<intent-filter>
+		    <action android:name="co.ronash.pushe.CHECK_TASKS" />
+		</intent-filter>
+		</receiver>
+		
+		<service
+		android:name="co.ronash.pushe.service.FallbackGcmTaskRunner"
+		android:exported="false" >
+		<intent-filter>
+		    <action android:name="co.ronash.pushe.ACTION_TASK_READY" />
+		</intent-filter>
+		</service>
+		<service
+		android:name="co.ronash.pushe.task.scheduler.gcm.GcmTaskRunner"
+		android:exported="true"
+		android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >
+		<intent-filter>
+		    <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+		</intent-filter>
+		</service>
+		<service
+		android:name="co.ronash.pushe.service.IntentTaskRunner"
+		android:exported="false" />
+		<service
+		android:name="co.ronash.pushe.service.InstanceIDService"
+		android:exported="false" >
+		<intent-filter>
+		    <action android:name="com.google.android.gms.iid.InstanceID" />
+		</intent-filter>
+		</service>
+		<activity
+		android:name="co.ronash.pushe.activities.PopupDialogActivity"
+		android:theme="@style/PusheTransparent">
+		</activity>
+		
+		<receiver android:name="co.ronash.pushe.receiver.BootAndScreenReceiver">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED"/>
+		</intent-filter>
+		</receiver>
+		<service android:name="co.ronash.pushe.service.ScreenStateService">
+		<intent-filter>
+		    <action android:name="co.ronash.pushe.service.ScreenStateService" />
+		</intent-filter>
+		</service>
+		
+		<activity
+		android:name="co.ronash.pushe.activities.WebviewActivity">
+		</activity>
+		
+		<receiver android:name="co.ronash.pushe.receiver.AppUsageAlarmReceiver">
+		</receiver>
+		
+		<receiver android:name="co.ronash.pushe.receiver.ConnectivityReceiver">
+		<intent-filter>
+		    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+		</intent-filter>
+		</receiver>
+		
+		<receiver
+		android:name="co.ronash.pushe.receiver.AddReceiver"
+		android:exported="false">
+		<intent-filter>
+		    <action android:name="com.evernote.android.job.ADD_JOB_CREATOR"/>
+		</intent-filter>
+		</receiver>
+		
+		<receiver android:name="co.ronash.pushe.receiver.AppChangeReceiver">
+		<intent-filter>
+		    <action android:name="android.intent.action.PACKAGE_INSTALL" />
+		    <action android:name="android.intent.action.PACKAGE_ADDED" />
+		    <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+		    <data android:scheme="package"/>
+		</intent-filter>
+		</receiver>
+		
+		<service
+		android:name="com.evernote.android.job.v21.PlatformJobService"
+		android:exported="false"
+		android:permission="android.permission.BIND_JOB_SERVICE" />
+		<service
+		android:name="com.evernote.android.job.v14.PlatformAlarmService"
+		android:exported="false" />
+		
+		<receiver
+		android:name="com.evernote.android.job.v14.PlatformAlarmReceiver"
+		android:exported="false" >
+		<intent-filter>
+		    <action android:name="com.evernote.android.job.v14.RUN_JOB" />
+		    <action android:name="net.vrallev.android.job.v14.RUN_JOB" />
+		</intent-filter>
+		</receiver>
+		<receiver
+		android:name="com.evernote.android.job.JobBootReceiver"
+		android:exported="false" >
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+		</receiver>
+		<service
+		android:name="com.evernote.android.job.gcm.PlatformGcmService"
+		android:exported="true"
+		android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+		<intent-filter>
+		    <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+		</intent-filter>
+		</service>
+		
+		
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+		    <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_872538619011"/>
+		    <meta-data android:name="co.ronash.pushe.cr" android:value="aHR0cDovLzM3MTcyYjA1YzQyNzRlMTc5YjUwZmRlMDhhNTU2MDYwOjE5MzE0ZGRmNGI4MDRlMDlhODRjMjlkNzM0YjljZTI4QGNhLnB1c2hlLmlyLzE3NTU="/>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".main"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+			<intent-filter>
+			   <action android:name="android.intent.action.MAIN" />
+			   <category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			
+			<intent-filter>
+			<action android:name="android.intent.action.VIEW"></action>
+			  <category 
+			
+			android:name="android.intent.category.DEFAULT"></category>
+			  <category 
+			
+			android:name="android.intent.category.BROWSABLE"></category>
+			  <data android:host="city-store.ir" android:scheme="http"></data>
+			</intent-filter>
+			<meta-data android:name="android.app.default_searchable"
+			                   android:value=".result" />
+		</activity>
+		<service android:name=".starter">
+		</service>
+		<receiver android:name=".starter$starter_BR">
+		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".insert_noskhe"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".show_noskhe"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<service android:name=".alarm_service">
+		</service>
+		<receiver android:name=".alarm_service$alarm_service_BR">
+			<intent-filter>
+			<action android:name="android.intent.action.BOOT_COMPLETED"/>
+			</intent-filter>
+		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".rezerv"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".order"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".catgory"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".show_list_kala"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".project_help"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".reg_login"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".sabad"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".history_order"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<service android:name=".pushejsonservice">
+		</service>
+		<receiver
+			android:name=".pushejsonservice$pushejsonservice_BR"
+			android:permission="com.google.android.c2dm.permission.SEND">
+			
+			<intent-filter>
+			<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			<category android:name="hpksoftware.setak" />
+			</intent-filter>
+		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".shared_admin"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".update_users"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".info_kala"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".update"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<service android:name=".pushservice">
+		</service>
+		<receiver android:name=".pushservice$pushservice_BR">
+		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".show_nazar"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".nazar"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".push_active"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".result"
+			android:label="ستاک"
+			android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar">
+			
+			<intent-filter>
+			<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable"
+			           android:resource="@xml/searchable"/>
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".disconnect"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+		<service android:name="anywheresoftware.b4a.samples.httputils2.httputils2service">
+		</service>
+		<receiver android:name="anywheresoftware.b4a.samples.httputils2.httputils2service$httputils2service_BR">
+		</receiver>
+		<service android:name="b4a.example.frgfg.db_mysql">
+		</service>
+		<receiver android:name="b4a.example.frgfg.db_mysql$db_mysql_BR">
+		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name="at.ahadev.b4a.ahashare.ahacontentchooser"
+			android:label="ستاک"
+			android:screenOrientation="portrait">
+		</activity>
+	</application>
+</manifest>

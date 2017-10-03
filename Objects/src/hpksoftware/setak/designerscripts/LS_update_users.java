@@ -1,0 +1,98 @@
+package hpksoftware.setak.designerscripts;
+import anywheresoftware.b4a.objects.TextViewWrapper;
+import anywheresoftware.b4a.objects.ImageViewWrapper;
+import anywheresoftware.b4a.BA;
+
+
+public class LS_update_users{
+
+public static void LS_general(java.util.LinkedHashMap<String, anywheresoftware.b4a.keywords.LayoutBuilder.ViewWrapperAndAnchor> views, int width, int height, float scale) {
+anywheresoftware.b4a.keywords.LayoutBuilder.setScaleRate(0.3);
+String _start="";
+String _end_t="";
+anywheresoftware.b4a.keywords.LayoutBuilder.scaleAll(views);
+_start = BA.NumberToString((10d / 100 * width));
+_end_t = BA.NumberToString((90d / 100 * width));
+views.get("p1").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p1").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp1").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp1").vw.setWidth((int)((views.get("p1").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_name").vw.setLeft((int)(0d));
+views.get("txt_name").vw.setWidth((int)((views.get("pp1").vw.getWidth()) - (0d)));
+views.get("p2").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p2").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp2").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp2").vw.setWidth((int)((views.get("p2").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_lname").vw.setLeft((int)(0d));
+views.get("txt_lname").vw.setWidth((int)((views.get("pp2").vw.getWidth()) - (0d)));
+views.get("p3").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p3").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp3").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp3").vw.setWidth((int)((views.get("p3").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_meli").vw.setLeft((int)(0d));
+views.get("txt_meli").vw.setWidth((int)((views.get("pp3").vw.getWidth()) - (0d)));
+views.get("p4").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p4").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp4").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp4").vw.setWidth((int)((views.get("p4").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_mobile").vw.setLeft((int)(0d));
+views.get("txt_mobile").vw.setWidth((int)((views.get("pp4").vw.getWidth()) - (0d)));
+views.get("p5").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p5").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp5").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp5").vw.setWidth((int)((views.get("p5").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_tel").vw.setLeft((int)(0d));
+views.get("txt_tel").vw.setWidth((int)((views.get("pp5").vw.getWidth()) - (0d)));
+views.get("p6").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p6").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp6").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp6").vw.setWidth((int)((views.get("p6").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("spin_sex").vw.setLeft((int)((7d / 100 * width)));
+views.get("spin_sex").vw.setWidth((int)((views.get("pp6").vw.getWidth())/2d - ((7d / 100 * width))));
+views.get("lbl_sex").vw.setLeft((int)((views.get("pp6").vw.getWidth())/2d));
+views.get("lbl_sex").vw.setWidth((int)((views.get("pp6").vw.getWidth())-(2d / 100 * width) - ((views.get("pp6").vw.getWidth())/2d)));
+views.get("p7").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p7").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp7").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp7").vw.setWidth((int)((views.get("p7").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_post").vw.setLeft((int)(0d));
+views.get("txt_post").vw.setWidth((int)((views.get("pp7").vw.getWidth()) - (0d)));
+views.get("p8").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p8").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp8").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp8").vw.setWidth((int)((views.get("p8").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_job").vw.setLeft((int)(0d));
+views.get("txt_job").vw.setWidth((int)((views.get("pp8").vw.getWidth()) - (0d)));
+views.get("p9").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p9").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp9").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp9").vw.setWidth((int)((views.get("p9").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("spin_year").vw.setLeft((int)(0d));
+views.get("spin_year").vw.setWidth((int)((views.get("pp9").vw.getWidth())/2.5d - (0d)));
+views.get("spin_month").vw.setLeft((int)((views.get("spin_year").vw.getLeft())+(views.get("spin_year").vw.getWidth())));
+views.get("spin_month").vw.setWidth((int)((50d / 100 * width) - ((views.get("spin_year").vw.getLeft())+(views.get("spin_year").vw.getWidth()))));
+views.get("spin_day").vw.setLeft((int)((views.get("spin_month").vw.getLeft())+(views.get("spin_month").vw.getWidth())));
+views.get("spin_day").vw.setWidth((int)((views.get("pp9").vw.getWidth()) - ((views.get("spin_month").vw.getLeft())+(views.get("spin_month").vw.getWidth()))));
+views.get("p10").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p10").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp10").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp10").vw.setWidth((int)((views.get("p10").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_email").vw.setLeft((int)(0d));
+views.get("txt_email").vw.setWidth((int)((views.get("pp10").vw.getWidth()) - (0d)));
+views.get("p11").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p11").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp11").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp11").vw.setWidth((int)((views.get("p11").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_address").vw.setLeft((int)(0d));
+views.get("txt_address").vw.setWidth((int)((views.get("pp11").vw.getWidth()) - (0d)));
+views.get("p12").vw.setLeft((int)(Double.parseDouble(_start)));
+views.get("p12").vw.setWidth((int)(Double.parseDouble(_end_t) - (Double.parseDouble(_start))));
+views.get("pp12").vw.setLeft((int)((5d / 100 * width)));
+views.get("pp12").vw.setWidth((int)((views.get("p12").vw.getWidth())-(5d / 100 * width) - ((5d / 100 * width))));
+views.get("txt_pass").vw.setLeft((int)((7d / 100 * width)));
+views.get("txt_pass").vw.setWidth((int)((views.get("pp12").vw.getWidth())/2d - ((7d / 100 * width))));
+views.get("label1").vw.setLeft((int)((views.get("pp12").vw.getWidth())/2d));
+views.get("label1").vw.setWidth((int)((views.get("pp12").vw.getWidth())-(2d / 100 * width) - ((views.get("pp12").vw.getWidth())/2d)));
+
+}
+}

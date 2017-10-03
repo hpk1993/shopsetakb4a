@@ -1,0 +1,1731 @@
+﻿Version=6.8
+NumberOfModules=28
+Module1=Starter
+Module2=insert_noskhe
+Module3=show_noskhe
+Module4=alarm_service
+Module5=rezerv
+Module6=order
+Module7=catgory
+Module8=library
+Module9=show_list_kala
+Module10=project_help
+Module11=reg_login
+Module12=sabad
+Module13=history_order
+Module14=PusheJsonService
+Module15=shared_admin
+Module16=update_users
+Module17=info_kala
+Module18=update
+Module19=myLibrary
+Module20=PushService
+Module21=function
+Module22=show_nazar
+Module23=nazar
+Module24=CustomListView
+Module25=push_active
+Module26=Result
+Module27=disconnect
+Module28=ChangeFontByLabelSize
+Build1=hassan,hpksoftware.setak
+Build2=test,hpksoftware.sinsin1
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="11" android:targetSdkVersion="21"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~	)~\n~	~\n~'	AddManifestText(~\n~'	<activity android:name=".home_screen" >~\n~'        <intent-filter>~\n~'            <action android:name="android.intent.action.MAIN" />~\n~'            <category android:name="android.intent.category.LAUNCHER" />~\n~'        </intent-filter>~\n~'    </activity>~\n~'	)~\n~	~\n~'	AddApplicationText(~\n~'	<activity~\n~'			android:windowSoftInputMode="stateHidden"~\n~'			android:launchMode="singleTop"~\n~'			android:name=".main"~\n~'			android:label="ستاک"~\n~'			android:screenOrientation="portrait">~\n~'			<intent-filter>~\n~'			   <action android:name="android.intent.action.home_screen" />~\n~'			   <category android:name="android.intent.category.LAUNCHER" />~\n~'			</intent-filter>~\n~'			~\n~'			<action android:name="android.intent.action.home_screen" />~\n~'			<intent-filter>~\n~'			<action android:name="android.intent.action.VIEW"></action>~\n~'			  <category ~\n~'			~\n~'			android:name="android.intent.category.DEFAULT"></category>~\n~'			  <category ~\n~'			~\n~'			android:name="android.intent.category.BROWSABLE"></category>~\n~'			  <data android:host="city-store.ir" android:scheme="http"></data>~\n~'			</intent-filter>~\n~'			<meta-data android:name="android.app.default_searchable"~\n~'			                   android:value=".result" />~\n~'		</activity>~\n~'	~\n~'	)~\n~	~\n~'AddActivityText(home_screen,<action android:name="android.intent.action.main" />)~\n~~\n~'SetActivityAttribute(disconnect, android:theme, "@android:style/Theme.Dialog")~\n~~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~~\n~'SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~'End of default text.~\n~AddPermission("android.permission.ACCESS_NETWORK_STATE")~\n~'SetApplicationAttribute(android:supportsRtl, "true")~\n~SetApplicationAttribute(android:theme, "@style/MyAppTheme")~\n~AddPermission(android.permission.WRITE_EXTERNAL_STORAGE)~\n~~\n~CreateResource(values, theme.xml,~\n~<resources>~\n~    <style name="MyAppTheme" parent="Theme.AppCompat.Light.NoActionBar">~\n~        <item name="colorPrimary">#607D8B</item>~\n~        <item name="colorPrimaryDark">#009688</item>~\n~        <item name="colorAccent">#009688</item>~\n~		<item name="color">#009688</item>~\n~        <item name="windowNoTitle">true</item>~\n~        <item name="windowActionBar">false</item>~\n~		<item name="windowActionBarOverlay">true</item>~\n~~\n~		~\n~    </style>~\n~	~\n~	~\n~</resources>~\n~)~\n~~\n~~\n~~\n~~\n~~\n~	AddActivityText(Main,~\n~<intent-filter>~\n~<action android:name="android.intent.action.VIEW"></action>~\n~  <category ~\n~~\n~android:name="android.intent.category.DEFAULT"></category>~\n~  <category ~\n~~\n~android:name="android.intent.category.BROWSABLE"></category>~\n~  <data android:host="city-store.ir" android:scheme="http"></data>~\n~</intent-filter>)~\n~'////////////////////////////////////////////////////////~\n~'SetApplicationAttribute(android:theme, "@style/MaterialDrawerTheme.Light")~\n~'//////////////////////////////////////////////////////////~\n~'//////searchable~\n~AddActivityText(Result, <intent-filter>~\n~<action android:name="android.intent.action.SEARCH" />~\n~</intent-filter>~\n~<meta-data android:name="android.app.searchable"~\n~           android:resource="@xml/searchable"/>)~\n~AddActivityText(Main, <meta-data android:name="android.app.default_searchable"~\n~                   android:value=".result" />)~\n~SetActivityAttribute(Result, android:theme, @android:style/Theme.Translucent.NoTitleBar)~\n~'///////dialog~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~'push    ~\n~~\n~~\n~SetReceiverAttribute(PusheJsonService, android:permission, "com.google.android.c2dm.permission.SEND")~\n~' Service Receiver Text~\n~AddReceiverText(PusheJsonService,~\n~<intent-filter>~\n~<action android:name="com.google.android.c2dm.intent.RECEIVE" />~\n~<category android:name="$PACKAGE$" />~\n~</intent-filter>~\n~)~\n~'******************~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~~\n~'این کد را برای سیستم پوشه جایگزین کنید~\n~     ~\n~    'hpksoftware.jahiziye        ~\n~AddManifestText(~\n~<permission~\n~        android:name="$PACKAGE$.permission.C2D_MESSAGE"~\n~        android:protectionLevel="signature" />~\n~<uses-permission android:name="$PACKAGE$.permission.C2D_MESSAGE" />~\n~~\n~        <!-- Optional permissions -->~\n~<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~        )~\n~~\n~        AddApplicationText(~\n~<receiver android:name="co.ronash.pushe.receiver.UpdateReceiver" >~\n~<intent-filter>~\n~    <action android:name="android.intent.action.PACKAGE_REPLACED" />~\n~~\n~    <data~\n~            android:path="$PACKAGE$"~\n~            android:scheme="package" />~\n~</intent-filter>~\n~</receiver>~\n~<receiver~\n~android:name="com.google.android.gms.gcm.GcmReceiver"~\n~android:exported="true"~\n~android:permission="com.google.android.c2dm.permission.SEND" >~\n~<intent-filter>~\n~    <action android:name="com.google.android.c2dm.intent.RECEIVE" />~\n~~\n~    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />~\n~~\n~    <category android:name="$PACKAGE$" />~\n~</intent-filter>~\n~</receiver>~\n~<service~\n~android:name="co.ronash.pushe.service.GcmService"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="com.google.android.c2dm.intent.RECEIVE" />~\n~</intent-filter>~\n~</service>~\n~~\n~<receiver~\n~android:name="co.ronash.pushe.receiver.FallbackGcmNetworkManagerReceiver"~\n~android:exported="true" >~\n~<intent-filter>~\n~    <action android:name="co.ronash.pushe.CHECK_TASKS" />~\n~</intent-filter>~\n~</receiver>~\n~~\n~<service~\n~android:name="co.ronash.pushe.service.FallbackGcmTaskRunner"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="co.ronash.pushe.ACTION_TASK_READY" />~\n~</intent-filter>~\n~</service>~\n~<service~\n~android:name="co.ronash.pushe.task.scheduler.gcm.GcmTaskRunner"~\n~android:exported="true"~\n~android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >~\n~<intent-filter>~\n~    <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />~\n~</intent-filter>~\n~</service>~\n~<service~\n~android:name="co.ronash.pushe.service.IntentTaskRunner"~\n~android:exported="false" />~\n~<service~\n~android:name="co.ronash.pushe.service.InstanceIDService"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="com.google.android.gms.iid.InstanceID" />~\n~</intent-filter>~\n~</service>~\n~<activity~\n~android:name="co.ronash.pushe.activities.PopupDialogActivity"~\n~android:theme="@style/PusheTransparent">~\n~</activity>~\n~~\n~<receiver android:name="co.ronash.pushe.receiver.BootAndScreenReceiver">~\n~<intent-filter>~\n~    <action android:name="android.intent.action.BOOT_COMPLETED"/>~\n~</intent-filter>~\n~</receiver>~\n~<service android:name="co.ronash.pushe.service.ScreenStateService">~\n~<intent-filter>~\n~    <action android:name="co.ronash.pushe.service.ScreenStateService" />~\n~</intent-filter>~\n~</service>~\n~~\n~<activity~\n~android:name="co.ronash.pushe.activities.WebviewActivity">~\n~</activity>~\n~~\n~<receiver android:name="co.ronash.pushe.receiver.AppUsageAlarmReceiver">~\n~</receiver>~\n~~\n~<receiver android:name="co.ronash.pushe.receiver.ConnectivityReceiver">~\n~<intent-filter>~\n~    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>~\n~</intent-filter>~\n~</receiver>~\n~~\n~<receiver~\n~android:name="co.ronash.pushe.receiver.AddReceiver"~\n~android:exported="false">~\n~<intent-filter>~\n~    <action android:name="com.evernote.android.job.ADD_JOB_CREATOR"/>~\n~</intent-filter>~\n~</receiver>~\n~~\n~<receiver android:name="co.ronash.pushe.receiver.AppChangeReceiver">~\n~<intent-filter>~\n~    <action android:name="android.intent.action.PACKAGE_INSTALL" />~\n~    <action android:name="android.intent.action.PACKAGE_ADDED" />~\n~    <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />~\n~    <data android:scheme="package"/>~\n~</intent-filter>~\n~</receiver>~\n~~\n~<service~\n~android:name="com.evernote.android.job.v21.PlatformJobService"~\n~android:exported="false"~\n~android:permission="android.permission.BIND_JOB_SERVICE" />~\n~<service~\n~android:name="com.evernote.android.job.v14.PlatformAlarmService"~\n~android:exported="false" />~\n~~\n~<receiver~\n~android:name="com.evernote.android.job.v14.PlatformAlarmReceiver"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="com.evernote.android.job.v14.RUN_JOB" />~\n~    <action android:name="net.vrallev.android.job.v14.RUN_JOB" />~\n~</intent-filter>~\n~</receiver>~\n~<receiver~\n~android:name="com.evernote.android.job.JobBootReceiver"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="android.intent.action.BOOT_COMPLETED" />~\n~</intent-filter>~\n~</receiver>~\n~<service~\n~android:name="com.evernote.android.job.gcm.PlatformGcmService"~\n~android:exported="true"~\n~android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">~\n~<intent-filter>~\n~    <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>~\n~</intent-filter>~\n~</service>~\n~~\n~~\n~<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>~\n~    <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_872538619011"/>~\n~    <meta-data android:name="co.ronash.pushe.cr" android:value="aHR0cDovLzM3MTcyYjA1YzQyNzRlMTc5YjUwZmRlMDhhNTU2MDYwOjE5MzE0ZGRmNGI4MDRlMDlhODRjMjlkNzM0YjljZTI4QGNhLnB1c2hlLmlyLzE3NTU="/>~\n~	~\n~  )~\n~~\n~        
+IconFile=
+NumberOfFiles=116
+File1=2-64.png
+File2=abc_spinner_mtrl_am_alpha.9.png
+File3=about (2).png
+File4=about_me.png
+File5=about1.png
+File6=account1.png
+File7=add (2).png
+File8=alarm_noskhe.bal
+File9=appbar.back.rest.png
+File10=appbar.close.rest.png
+File11=appbar.next.rest.png
+File12=appbar.save.rest.png
+File13=available.png
+File14=badge_list.png
+File15=badge_list2.png
+File16=badge_product.png
+File17=bookmark.png
+File18=bootstrap.css
+File19=botun darj noskhe.png
+File20=botun noskhe.png
+File21=botun rezerf.png
+File22=botun shop.png
+File23=btn_cat_1.png
+File24=btn_cat_2.png
+File25=cat_btn.png
+File26=category.bal
+File27=connect_to_network.png
+File28=contact1.png
+File29=db.db
+File30=delete.png
+File31=disconnect.bal
+File32=ecommerce2.jpg
+File33=email (2).png
+File34=filter.png
+File35=filter2.png
+File36=font-awesome.min.css
+File37=FontAwesome.otf
+File38=header.jpg
+File39=help (2).png
+File40=history.png
+File41=home.png
+File42=ic_add_shopping_cart_2_white_36dp.png
+File43=ic_content_paste_grey600_18dp.png
+File44=ic_forum_grey600_18dp.png
+File45=ic_shopping_cart.png
+File46=ic_signal_wifi_off_grey600_48dp.png
+File47=ico.png
+File48=index1.html
+File49=info_kala.bal
+File50=insert_noskhe.bal
+File51=instagram.png
+File52=iransans Bold.ttf
+File53=kanaltelegram.jpg
+File54=list.png
+File55=list_brand.png
+File56=list_full1.png
+File57=list_full2.png
+File58=lock-64.png
+File59=login.png
+File60=logo.png
+File61=main.bal
+File62=mnu.png
+File63=nav-arrow-down-32.png
+File64=nav-arrow-up-32.png
+File65=next.png
+File66=no_image.png
+File67=no_pic.png
+File68=pack icon1.ttf
+File69=page_1.bal
+File70=page_main.bal
+File71=person.png
+File72=phone.png
+File73=profile3.jpg
+File74=prog_img.png
+File75=project_main.bal
+File76=push_activ.bal
+File77=reg_login.bal
+File78=reg_nazar.bal
+File79=reg_order.bal
+File80=rezerv.bal
+File81=scrol_layout.bal
+File82=scrol_layout2.bal
+File83=scrolmain.bal
+File84=search.png
+File85=search_shared.bal
+File86=share.png
+File87=shekasteh.ttf
+File88=show_nazar.bal
+File89=show_noskhe.bal
+File90=show_payment.bal
+File91=soon.png
+File92=splash.png
+File93=star0.png
+File94=star1.png
+File95=start.png
+File96=sv_brand.bal
+File97=sv_catgory.bal
+File98=sv_history_order.bal
+File99=sv_list_catgory.bal
+File100=sv_list_lat_order.bal
+File101=sv_mnu.bal
+File102=sv_project.bal
+File103=sv_sabad.bal
+File104=sv_show_nazar.bal
+File105=sv_show_propertis.bal
+File106=sv_users.bal
+File107=tab_noskhe.bal
+File108=telegram.png
+File109=tell_me.png
+File110=time.png
+File111=txt.txt
+File112=typeface_specialoffer.png
+File113=unavailabl.png
+File114=update_app.bal
+File115=update_users.bal
+File116=web.png
+NumberOfLibraries=46
+Library1=core
+Library2=reflection
+Library3=stringutils
+Library4=phone
+Library5=json
+Library6=httputils2
+Library7=parsmsgbox
+Library8=richstring
+Library9=money
+Library10=materialcircleprogress
+Library11=rate_star
+Library12=customprogressdialog
+Library13=line_height
+Library14=ime
+Library15=toastmessage
+Library16=id
+Library17=smartstring
+Library18=arialib
+Library19=persiandate
+Library20=network
+Library21=javaobject
+Library22=notificationbuilder
+Library23=encryption
+Library24=byteconverter
+Library25=rippleeffect
+Library26=xmllayoutbuilder
+Library27=animation menu
+Library28=rsasyncdownloader
+Library29=hpk_connector
+Library30=pusheplugin_v1.1.0
+Library31=appcompat
+Library32=spotsdialog
+Library33=designsupport
+Library34=pagerbullet
+Library35=msmaterialdrawer
+Library36=tatytoast
+Library37=htmltextview
+Library38=threading
+Library39=matrialdialog_hpk
+Library40=dialogs
+Library41=sql
+Library42=datetimepicker
+Library43=data_picker_hpk
+Library44=androidspinnerwheel
+Library45=manampersiandateultimate
+Library46=hitex_recyclerview
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: ستاک
+	#VersionCode: 1
+	#VersionName: 1.00
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: false
+	#Extends: android.support.v7.app.AppCompatActivity
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: false
+	
+'	#AdditionalRes: ..\b4a_floatingactionbutton, de.amberhome.objects.floatingactionbutton
+'	#AdditionalRes: ..\..\resource
+	'res appcompat
+	#AdditionalRes: ..\resource_appcompact
+	'SpotsDialog
+	#AdditionalRes: ..\resSpotsDialog
+	'resBullet
+	#AdditionalRes: ..\resBullet
+	'menu_material
+	#AdditionalRes: ..\menu_material\md-app\res
+	#AdditionalRes: ..\menu_material\md-lib\res
+	'res_tasty
+	#AdditionalRes: ..\res_tasty
+	'point_dialog
+	#AdditionalRes: ..\point_dialog\res
+	#AdditionalRes: ..\point_dialog\res_core
+	'Date picker Persion
+	#Additionalres: ..\res_datepicker
+#End Region
+
+Sub Process_Globals
+	Public name_dat As String
+	Dim Pushe As Pushe
+'	Public color_progress As Int=0xC81F1E23
+	
+
+End Sub
+
+Sub Globals
+	Type baner_list_1(src_pic As String,desc As String)
+	Dim list1_baner As List
+	Dim apc As AppCompat
+	Dim toast As TatyToast
+	Private progress_spot As SpotsDialog
+	Dim time,time_viesue As Long
+	
+	
+	
+	Private lbl_account As Label
+	'//////////
+	Public name_dat As String
+	
+
+	Private lbl_account As Label
+	
+	Private btn_menu As Button
+	Private ScrollView1 As ScrollView
+	'/////////////slide
+	Dim timer1 As Timer
+	Private Panel_slider As Panel
+	Dim piccaso As Hitex_Picasso
+	'///////////////
+	Dim toman As money
+	'//////////////////sabad
+	Dim list_kala As List
+	'//////////////////////
+	Dim bool_load_porfroush As Boolean=True
+	'////////////////////
+	Private porfroush_panel,viesue_panel As HorizontalScrollView  ' slide+horizontal is page_main layoutd
+	
+'	Private btn_list_category As IconButton
+	'/////////////////timer clock
+
+	Private panel_timer As Panel
+	'///////////////////footer
+'	Private btn_list_category1 As Button
+	
+	Private img_vip As ImageView
+	Private lbl_title_news As Label
+	
+	Private lbl_badge As Label
+	Dim bool_click_link As Boolean=False
+	Dim checked_update As Boolean=False
+	'slider
+	Dim pa As PagerBulletAdapter
+	Dim pb As PagerBullet
+	Dim timer_slide As Timer
+	Dim index_slider As Int=0
+	
+	'menu
+	Public MDB As MSMaterialDrawerBuilder
+	Public MD As MSMaterialDrawer
+	Dim user_info As List
+	
+	Private Panel1 As Panel
+	Private btn_sabad As Button
+	Private btn_share As Button
+	Private btn_search As Button
+	'//////////////////////////////
+	Private panel_v1 As Panel
+	Private LayoutView1,LayoutView2 As Hitex_LayoutView
+	Private divider_LayoutView1 As Hitex_DividerItemDecoration
+	Private cardview1 As Hitex_RecyclerCardView
+	Private panel_base As Panel
+	Private progress_porfroosh As ProgressBar
+	Private panel_baner_1,panel_baner_2 As Panel
+	Private panel_obj0,panel_obj1 As Panel
+	
+	Type brands(pic As String)
+	Dim list_brand As List
+	Private panel_brand As Panel
+	
+	
+	Dim point_dialog As MatrialDialog_hpk
+	
+	Private splash As Panel
+	Dim timer_splash As Timer
+	Dim AriaLib1 As AriaLib
+	Private btn_list_porfroush As Label
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	Activity.Color=Colors.White
+	name_dat=Starter.filename_user
+	function. initialize_spotdialog(progress_spot)
+	StartService(alarm_service)
+	Try
+#region  اجرای برنامه با لینک
+		'//////////////////////
+		Dim Intent1 As Intent
+		Dim data_link,str_link As String
+		Intent1 = Activity.GetStartingIntent
+		If Intent1.HasExtra("Notification_Tag") Then
+			Try
+				Dim Notification_Tag As String= Intent1.GetExtra("Notification_Tag")
+				connector.Initialize(Me,"db",Starter.server_mysql,Starter.dn,Starter.du,Starter.dp)
+				info_kala.code_kala=Notification_Tag
+				StartActivity(info_kala)
+				Activity.Finish
+			Catch
+'				toast.Initialize(LastException.Message,toast.LENGTH_LONG,toast.WARNING)
+			End Try
+		End If
+
+		If Intent1.ExtrasToString.Contains("com.android.browser.application_id")=True Then
+			'log("com.android.browser.application_i")
+			Log("com.android.browser.application_id")
+			bool_click_link=True
+			Log("bool_click_link: " & bool_click_link)
+			str_link=Intent1.GetData
+			data_link=str_link.SubString((str_link.LastIndexOf("/"))+1)'Regex.Split("?",str_link)
+			info_kala.code_kala=data_link
+			StartActivity(info_kala)
+			Activity.Finish
+			progress_spot.DisMissDialog
+			Return
+		Else
+ 
+#end region    //////////////////////
+			Dim sql1 As SQL
+			Dim cr1 As Cursor
+			If File.Exists(Starter.rute_file_app,"db.db") = False Then
+				File.Copy(File.DirAssets,"db.db",Starter.rute_file_app,"db.db")
+			End If
+			If sql1.IsInitialized=False Then sql1.Initialize(Starter.rute_file_app,"db.db",True)
+			
+			If AriaLib1.TestInterntConnection=True Then
+				
+				Activity.LoadLayout("main")
+				Panel1.Visible=False
+				Dim color_header,color_header2 As ColorDrawable
+				color_header.Initialize(Starter.color_base,0)
+				Panel1.Background=color_header
+				color_header2.Initialize(0xFF1EBF6F,0)
+				splash.Background=color_header2
+				splash.BringToFront
+				initialize_awsome
+				Log("coneccted")
+				connector.Initialize(Me,"db",Starter.server_mysql,Starter.dn,Starter.du,Starter.dp)
+				timer_slide.Initialize("timer_slide",Starter.timer_slideshow)
+''				progress_spot.ShowDialog
+				connector.send_query($"select * from `check`"$,"check","")
+				If Starter.enable_push=True Then Pushe.initialize()
+			Else 'connection
+				Log("disconeccted")
+'				timer_splash.Initialize("timer_splash",3000)
+'				timer_splash.Enabled=True
+'				ScrollView1.Panel.RemoveAllViews
+				Activity.LoadLayout("page_1")
+			
+'				Activity.LoadLayout("disconnect")
+			End If 'connection
+	
+		End If
+
+	Catch
+	End Try
+
+
+End Sub
+
+
+#region baners1
+
+Sub LayoutView1_onCreateViewHolder (Parent As Panel)	'* onCreate *'
+	Log("LayoutView1_onCreateViewHolder")
+	Parent.Height=(panel_baner_1.Height / list1_baner.Size)
+	Parent.Width=100%x
+
+'	Parent.Padding = Array As Int (10dip, 0dip, 10dip, 10dip)
+	Dim img1  As ImageView
+	img1.Initialize("")
+	Parent.AddView(img1,2%x,0,Parent.Width-4%x,Parent.Height)
+	apc.SetElevation(img1,30dip)
+End Sub
+Sub LayoutView1_onBindViewHolder (Parent As Panel,Position As Int)	'* onBind *'
+	Dim baner_list1=list1_baner.Get(Position) As baner_list_1
+	Dim pnl1 As Panel=Parent
+	Dim img1  As ImageView=pnl1.GetView(0)
+	piccaso.Load("http",baner_list1.src_pic).Resize(img1.Width,img1.Height).CenterCrop.SkipMemoryCache.Into(img1)
+	'	img1.Bitmap=LoadBitmap(File.DirAssets,"header.jpg")
+End Sub
+
+Sub LayoutView2_onCreateViewHolder (Parent As Panel)	'* onCreate *'
+	Log("Round(list1_baner.Size/2) : " & Round(list1_baner.Size/2))
+	Parent.Height=(panel_baner_1.Height / Round(list1_baner.Size/2))
+	Parent.Width=50%x
+
+	Dim pnl  As Panel
+	pnl.Initialize("")
+	Parent.AddView(pnl,0,0,Parent.Width,Parent.Height)
+	Dim img1  As ImageView
+	img1.Initialize("")
+	pnl.AddView(img1,0,0,pnl.Width,pnl.Height)
+	pnl.Padding=Array As Int (5dip, 0dip, 5dip, 5dip)
+End Sub
+
+Sub LayoutView2_onBindViewHolder (Parent As Panel,Position As Int)	'* onBind *'
+	Dim baner_list1=list1_baner.Get(Position) As baner_list_1
+	Log("GridView: " & baner_list1.src_pic)
+	Dim pnl1 As Panel=Parent
+	Dim pnl2 As Panel=pnl1.GetView(0)
+	Dim img1  As ImageView=pnl2.GetView(0)
+	Parent.Tag=baner_list1.desc
+	piccaso.Load("http",baner_list1.src_pic).Resize(img1.Width,img1.Height).SkipMemoryCache.Into(img1)
+End Sub
+
+Sub LayoutView2_ItemClick (ClickedItem As Panel,Position As Int)
+	Log(ClickedItem.Tag)
+	Dim parser As JSONParser
+	parser.Initialize(	ClickedItem.Tag	)
+	Dim root As Map = parser.NextObject
+	If root.Get("type")="category" Then
+		Dim val_id As Int=root.Get("value")
+		Dim val_info As String=root.Get("info")
+		show_list_kala.cat_name=val_info'نام گروه
+		show_list_kala.bool_cat=True
+		show_list_kala.bool_news_list=False
+		show_list_kala.bool_porfroush=False
+		show_list_kala.code_cat=val_id'کد گروه
+'		show_list_kala.code_sub_cat=arr_temp(1)'کد زیر گروه
+		StartActivity(show_list_kala)
+	End If
+	If root.Get("type")="product" Then
+		info_kala.code_kala=val_id
+		StartActivity(info_kala)
+	End If
+	
+End Sub
+#End Region
+
+
+
+#region baners2
+Sub LayoutView1_baners2_onCreateViewHolder (Parent As Panel)	'* onCreate *'
+	Log("LayoutView2_onCreateViewHolder")
+	Parent.Height=(panel_baner_2.Height / list1_baner.Size)-2dip
+	Parent.Width=100%x
+	Dim img1  As ImageView
+	img1.Initialize("")
+	Parent.AddView(img1,2%x,0,	Parent.Width-(4%x)	,Parent.Height)
+	apc.SetElevation(img1,30dip)
+End Sub
+Sub LayoutView1_baners2_onBindViewHolder (Parent As Panel,Position As Int)	'* onBind *'
+	Dim baner_list1=list1_baner.Get(Position) As baner_list_1
+	Dim pnl1 As Panel=Parent
+	Dim img1  As ImageView=pnl1.GetView(0)
+	Parent.Tag=baner_list1.desc
+	piccaso.Load("http",baner_list1.src_pic).Resize(img1.Width,img1.Height).CenterCrop.SkipMemoryCache.Into(img1)
+End Sub
+
+Sub LayoutView2_baners2_onCreateViewHolder (Parent As Panel)	'* onCreate *'
+	Parent.Height=(panel_baner_2.Height / Round(list1_baner.Size/2))
+	Parent.Width=50%x
+	Dim pnl  As Panel
+	pnl.Initialize("")
+	Parent.AddView(pnl,0,0,Parent.Width,Parent.Height)
+	Dim img1  As ImageView
+	img1.Initialize("")
+	pnl.AddView(img1,0,0,pnl.Width,pnl.Height)
+	pnl.Padding=Array As Int (5dip, 0dip, 5dip, 5dip)
+End Sub
+Sub LayoutView2_baners2_onBindViewHolder (Parent As Panel,Position As Int)	'* onBind *'
+	Dim baner_list1=list1_baner.Get(Position) As baner_list_1
+	Log("GridView: " & baner_list1.src_pic)
+	Dim pnl1 As Panel=Parent
+	Dim pnl2 As Panel=pnl1.GetView(0)
+	Dim img1  As ImageView=pnl2.GetView(0)
+	'	img1.Bitmap=LoadBitmap(File.DirAssets,"header.jpg")
+	piccaso.Load("http",baner_list1.src_pic).Resize(img1.Width,img1.Height).SkipMemoryCache.Into(img1)
+End Sub
+
+Sub LayoutView1_baners2_ItemClick (ClickedItem As Panel,Position As Int)
+	Log(ClickedItem.Tag)
+	Dim parser As JSONParser
+	parser.Initialize(	ClickedItem.Tag	)
+	Dim root As Map = parser.NextObject
+	Dim val_id As Int=root.Get("value")
+	Dim val_info As String=root.Get("info")
+	If root.Get("type")="category" Then
+		show_list_kala.cat_name=val_info'نام گروه
+		show_list_kala.bool_cat=True
+		show_list_kala.bool_news_list=False
+		show_list_kala.bool_porfroush=False
+		show_list_kala.code_cat=val_id'کد گروه
+		'		show_list_kala.code_sub_cat=arr_temp(1)'کد زیر گروه
+		StartActivity(show_list_kala)
+	End If
+	If root.Get("type")="product" Then
+		info_kala.code_kala=val_id
+		StartActivity(info_kala)
+	End If
+	
+	If root.Get("type")="project" Then
+		If val_id=0 Then
+			StartActivity(project_help)
+		End If
+	End If
+	
+	If root.Get("type")="point" Then
+		If val_id=0 Then
+			point_dialog.Initialize("dialog")
+			point_dialog.SetTitle(" اطلاعیه")
+			point_dialog.SetDescription(val_info)
+			point_dialog.SetHeaderColorInt(Starter.color_base)
+			Dim xml As XmlLayoutBuilder
+			point_dialog.SetIcon(	xml.GetDrawable("icon1")	)
+			point_dialog.SetCancelable(True)
+			'		point_dialog.SetPositiveText("بله")
+			'		point_dialog.SetNegativeText("خیر")
+			point_dialog.SetNeutralText("بستن")
+			point_dialog.SetStyle(point_dialog.EADER_WITH_ICON)
+			point_dialog.WithDialogAnimation2(True,point_dialog.Duration_SLOW)
+			point_dialog.build
+			point_dialog.show
+		End If
+	End If
+End Sub
+#End Region
+
+
+
+
+Sub check_account
+	If File.Exists(myLibrary.rute,name_dat)=True Then
+		Dim lst As List=File.ReadList(myLibrary.rute,name_dat)
+		'بررسی حساب کاربری
+		Log(lst)
+'		Dim share_code As Int=lst.Get(3)+100
+				If lst.Get(2)="" Or lst.Get(1)="" Or lst.Get(0)="" Then
+			ToastMessageShow("برای راحتی عملیات خرید از بخش پروفایل، حساب کاربری خود را تکمیل کنید",False)
+				Else
+		
+				End If
+		End If
+End Sub
+
+#region عملیات بعد بارگذاری لایوت
+Sub	initialize_layout
+	ScrollView1.Panel.LoadLayout("page_main")
+
+	ScrollView1.Panel.Height=panel_obj1.Top + panel_obj1.Height + 1dip
+	function.hide_scrollbar_horizontal(porfroush_panel)
+	function.hide_scrollbar_horizontal(viesue_panel)
+	timer1.Initialize("timer1",3500)
+		
+	checked_update=True
+	
+	font_label
+	
+	'	time_life_viesue
+'	get_category
+'	get_baners(1)
+	get_slideshow
+End Sub
+#end region
+
+
+Sub get_baners(group As Int)
+	
+	Select group
+		Case 1
+			connector.send_query($"select * from `baners` where `group`=${group} ORDER BY  `order` ASC"$,"baners1","")
+		Case 2
+			connector.send_query($"select * from `baners` where `group`=${group} ORDER BY  `order` ASC"$,"baners2","")
+	End Select
+	
+End Sub
+
+Sub db_connector(list_records As List,tag As Object)
+	progress_spot.DisMissDialog
+	Try
+		Select tag
+			Case "get_viesue"
+				func_viesue(list_records)
+			Case "get_category"
+				func_get_category(list_records)
+			Case "get_porfroush"
+				func_get_porfroush(list_records)
+			Case "get_slideshow"
+				func_get_slideshow(list_records)
+			Case "time_life_viesue"
+				func_time_life_viesue(list_records)
+			
+			
+				
+			Case "baners1"
+				#region baners1
+				If list_records.Size>0 Then
+					Dim map_type As Map=list_records.Get(0)
+					Dim type_baner As String=map_type.Get("meta_type")
+					list1_baner.Initialize
+					Select type_baner
+						Case "list-single"
+							For i=0 To list_records.Size-1
+								Dim map1 As Map=list_records.Get(i)
+								Dim baner_list1 As baner_list_1
+								baner_list1.Initialize
+								baner_list1.src_pic=map1.Get("meta_value")
+								baner_list1.desc=map1.Get("meta_description")
+								list1_baner.Add(	baner_list1	)
+							Next
+							panel_baner_1.Height=list1_baner.Size * 130dip
+							panel_obj1.Top= panel_baner_1.Top + panel_baner_1.Height + 10dip
+							panel_brand.Top=panel_obj1.Top + panel_obj1.Height + 10dip
+							ScrollView1.Panel.Height=panel_obj1.Top + panel_obj1.Height + 1dip
+							LayoutView1.Initialize("LayoutView1",False,"ListView","Vertical",False,True,0)
+							panel_baner_1.AddView(LayoutView1,0,	0	,	panel_baner_1.Width	,	panel_baner_1.Height	)
+							divider_LayoutView1.Initialize(LayoutView1)
+							divider_LayoutView1.AddItemDecoration1(Colors.White,6dip)
+							
+							'							LayoutView1.CardViewEnabled = True
+							'							LayoutView1.CardView_Radius = 22dip
+							'							LayoutView1.CardView_Elevation = 20dip
+							'							LayoutView1.CardView_MaxElevation = 30dip
+							
+							LayoutView1.Show(list1_baner.Size,LayoutView1.ANIMATION_ScaleIn,500,False,panel_baner_1.Width,panel_baner_1.Height)
+					
+						Case "list-two"
+							Log("list-two")
+							For i=0 To list_records.Size-1
+								Dim map1 As Map=list_records.Get(i)
+								Dim baner_list1 As baner_list_1
+								baner_list1.Initialize
+								baner_list1.src_pic=map1.Get("meta_value")
+								baner_list1.desc=map1.Get("meta_description")
+								list1_baner.Add(	baner_list1	)
+								Log("list1_baner: " & list1_baner.Get(i) )
+							Next
+							panel_baner_1.Height=Round(list1_baner.Size/2) * 150dip
+							panel_obj1.Top= panel_baner_1.Top + panel_baner_1.Height + 10dip
+							panel_brand.Top=panel_obj1.Top + panel_obj1.Height + 10dip
+							ScrollView1.Panel.Height=panel_brand.Top + panel_brand.Height + 1dip
+							
+							
+							
+							LayoutView1.Initialize("LayoutView2",False,"GridView","Vertical",False,True,2)
+							panel_baner_1.AddView(LayoutView1,0,	0	,	panel_baner_1.Width	,	panel_baner_1.Height	)
+							divider_LayoutView1.Initialize(LayoutView1)
+							divider_LayoutView1.AddItemDecoration1(Colors.Transparent,0dip)
+							LayoutView1.Show(list1_baner.Size,LayoutView1.ANIMATION_ScaleIn,500,False,panel_baner_1.Width,panel_baner_1.Height)
+							
+					End Select
+				End If
+				#end region
+				get_slideshow
+				
+			Case "baners2"
+				Log("baners2")
+					#region baners2
+				If list_records.Size>0 Then
+					Log("??????" & list_records)
+					Dim map_type As Map=list_records.Get(0)
+					Dim type_baner As String=map_type.Get("meta_type")
+					list1_baner.Initialize
+					Log("type_baner: " & type_baner )
+					Select type_baner.Trim
+						Case "list-single"
+							Log("list-single")
+							For i=0 To list_records.Size-1
+								Dim map1 As Map=list_records.Get(i)
+								Dim baner_list1 As baner_list_1
+								baner_list1.Initialize
+								baner_list1.src_pic=map1.Get("meta_value")
+								baner_list1.desc=map1.Get("meta_description")
+								list1_baner.Add(	baner_list1	)
+							Next
+									
+							panel_baner_2.Height=(list1_baner.Size * 130dip)+2dip
+							panel_baner_2.Top= panel_obj1.Top + panel_obj1.Height + 10dip
+							ScrollView1.Panel.Height=panel_baner_2.Top + panel_baner_2.Height + 1dip
+							Try
+								LayoutView2.Initialize("LayoutView1_baners2",False,"ListView","Vertical",False,True,0)
+							Catch
+								Log(LastException)
+							End Try
+									
+									
+							panel_baner_2.AddView(LayoutView2,0,	0	,	panel_baner_2.Width	,	panel_baner_2.Height	)
+							divider_LayoutView1.Initialize(LayoutView2)
+							divider_LayoutView1.AddItemDecoration1(Colors.Transparent,6dip)
+							
+							LayoutView2.Show(list1_baner.Size,LayoutView2.ANIMATION_ScaleIn,500,False,panel_baner_2.Width,panel_baner_2.Height)
+					
+						Case "list-two"
+							Log("list-two")
+							For i=0 To list_records.Size-1
+								Dim map1 As Map=list_records.Get(i)
+								Dim baner_list1 As baner_list_1
+								baner_list1.Initialize
+								baner_list1.src_pic=map1.Get("meta_value")
+								baner_list1.desc=map1.Get("meta_description")
+								list1_baner.Add(	baner_list1	)
+								Log("list1_baner: " & list1_baner.Get(i) )
+							Next
+							panel_baner_2.Height=Round(list1_baner.Size/2) * 100dip
+							panel_baner_2.Top= panel_obj1.Top + panel_obj1.Height + 10dip
+							ScrollView1.Panel.Height=panel_baner_2.Top + panel_baner_2.Height + 1dip
+							LayoutView1.Initialize("LayoutView2_baners2",False,"GridView","Vertical",False,True,2)
+							panel_baner_2.AddView(LayoutView1,0,	0	,	panel_baner_2.Width	,	panel_baner_2.Height	)
+							divider_LayoutView1.Initialize(LayoutView1)
+							divider_LayoutView1.AddItemDecoration1(Colors.White,6dip)
+							LayoutView1.Show(list1_baner.Size,LayoutView1.ANIMATION_ScaleIn,500,False,panel_baner_2.Width,panel_baner_2.Height)
+							
+					End Select
+						
+					'is temp
+					'						connector.send_query($"SELECT * FROM  `brand` where `show_brand`=1 ORDER BY  `id` ASC  "$,"get_brand","")
+				End If
+					#end region
+					
+					
+				
+			Case "get_brand"
+				Log( "get_brand")
+				list_brand.Initialize
+				Dim img_brand(list_records.Size) As ImageView
+				
+				Dim hor_panel As HorizontalScrollView
+				hor_panel.Initialize(panel_brand.Width,"")
+				panel_brand.AddView(hor_panel,0,0,panel_brand.Width,panel_brand.Height)
+				function.hide_scrollbar_horizontal(hor_panel)
+				For i=0 To list_records.Size-1
+					Dim map1 As Map=list_records.Get(i)
+					Dim brand1 As brands
+					brand1.Initialize
+					brand1.pic=map1.Get("logo_brand")
+					list_brand.Add(	brand1	)
+					
+					img_brand(i).Initialize("img_brand")
+					
+					If i=0 Then
+						hor_panel.Panel.AddView(img_brand(i),2dip,0,	panel_brand.Width/5	,panel_brand.Height)
+					Else
+						hor_panel.Panel.AddView(img_brand(i),img_brand(i-1).Left + img_brand(i-1).Width + 6dip,0,	panel_brand.Width/5	,panel_brand.Height)
+					End If
+					piccaso.Load("http", Starter.dir_root_image_file_brand & brand1.pic).SkipMemoryCache.Into(img_brand(i))'.Resize(img_brand(i).Width,img_brand(i).Height).CenterCrop
+				Next
+				hor_panel.Panel.Width=img_brand(list_records.Size-1).Left + img_brand(list_records.Size-1).Width + 2dip
+				apc.SetElevation(panel_brand,7dip)
+				
+				'				Log(list_brand)
+				'
+				
+			Case "check"
+				If list_records.Size>0 Then
+					Dim map1 As Map=list_records.Get(0)
+					Dim status As Int
+					If IsNumber(map1.Get("status") )=True Then status=map1.Get("status")
+					
+					If Starter.ckeck_app_access=True Then
+					
+						Select status
+							Case 0
+								Log(0)
+								Dim  Pd As ParsMSGBOX
+								Pd=function.style_msgbox2("پیام سیستم",map1.Get("msg"))
+								Pd.Create
+								Activity.Finish
+							Case 1
+								Dim ver As Int
+								If IsNumber(map1.Get("ver") )=True Then ver=map1.Get("ver")
+								If ver > Application.VersionCode Then
+									Dim  Pd As ParsMSGBOX
+									Pd=function.style_msgbox("پیام سیستم","برنامه شما باید به ورژن جدیدتر آپدیت شود.آیا میخواهید دانلود ورژن جدید صورت بگیرد؟","بلی","خیر","")
+									'									Dim i As Int = Pd.Create
+									'									If i=DialogResponse.POSITIVE Then
+									'										update.link_app=map1.Get("link")
+									'										update.ver=ver
+									'										StartActivity(update)
+									'										Activity.Finish
+									'									Else
+									'										Activity.Finish
+									'									End If
+								Else
+								
+									initialize_layout
+								End If
+						End Select
+					Else
+						initialize_layout
+					End If
+				
+				End If
+				progress_spot.DisMissDialog
+			
+			Case "disconnect"
+				StartActivity(disconnect)
+				progress_spot.DisMissDialog
+			
+			
+		End Select
+	Catch
+
+		Log(LastException.Message)
+		toast.Initialize("برنامه را دوباره اجرا کنید",toast.LENGTH_LONG,toast.INFO)
+		Activity.Finish
+	End Try
+	progress_spot.DisMissDialog
+End Sub
+
+Sub Panelmenu_Touch (Action As Int, X As Float, Y As Float) 'اینو ایجاد میکنیم تا روی پنل منو کلیک شد ، ویو های زیرش عکس العمل نشون ندن
+	
+End Sub
+
+
+
+
+Sub Activity_Pause (UserClosed As Boolean)
+	timer_slide.Enabled=False
+End Sub
+
+
+#Region 
+
+Sub btn_menu_Click
+	Initialize_menu
+	MD.OpenDrawer
+End Sub
+
+
+Sub btn_sabad_Click()
+	StartActivity(sabad)
+End Sub
+
+#End Region
+
+
+
+Sub btn_list_category_Click
+	catgory.bool_brand_layout=False
+	StartActivity(catgory)
+	
+End Sub
+Sub btn_list_category1_Click
+	catgory.bool_brand_layout=False
+	StartActivity(catgory)
+End Sub
+
+
+
+Sub func_viesue(lists As List)
+	If lists.Size > 0 Then
+							#region
+		Dim panel_kala2(lists.Size) As Panel
+		Dim img_viesue(lists.Size) As ImageView
+		Dim lbl_name_viesue(lists.Size),lbl_price_viesue(lists.Size),lbl_price_off_viesue(lists.Size) As Label
+		Dim color_panel_viesue As ColorDrawable
+		color_panel_viesue.Initialize2(Colors.White,15,0dip,0xFF0FA2EC)
+								
+		For i=0 To lists.Size-1
+			Dim map1 As Map=lists.Get(i)
+			panel_kala2(i).Initialize("panel_viesue")
+			panel_kala2(i).Tag=map1.Get("code_kala")
+			img_viesue(i).Initialize("img_viesue")
+			lbl_name_viesue(i).Initialize("lbl_name_viesue")
+			lbl_price_viesue(i).Initialize("lbl_price_viesue")
+			lbl_price_off_viesue(i).Initialize("lbl_price_off_viesue")
+			If i=0 Then
+				Log("pnl")
+				viesue_panel.Panel.AddView(panel_kala2(i),0,3dip,(viesue_panel.Width/3.5)-5dip,viesue_panel.Height-5dip)
+			Else
+				viesue_panel.Panel.AddView(panel_kala2(i),panel_kala2(i-1).Left + panel_kala2(i-1).Width + 15dip ,3dip,(viesue_panel.Width/3.5)-5dip,viesue_panel.Height-5dip)
+			End If
+									
+						
+										
+			panel_kala2(i).AddView(img_viesue(i),5dip,2dip,panel_kala2(i).Width-10dip,panel_kala2(i).Height/2)
+			panel_kala2(i).AddView(lbl_name_viesue(i),img_viesue(i).Left,img_viesue(i).Top + img_viesue(i).Height,img_viesue(i).Width,(img_viesue(i).Height/2)/1.2)
+			panel_kala2(i).AddView(lbl_price_off_viesue(i),0,lbl_name_viesue(i).Top + lbl_name_viesue(i).Height,panel_kala2(i).Width,30dip)
+			panel_kala2(i).AddView(lbl_price_viesue(i),0,lbl_price_off_viesue(i).Top + lbl_price_off_viesue(i).Height,panel_kala2(i).Width,30dip)
+								
+										
+			lbl_price_viesue(i).Text=toman.number(map1.Get("price_off")) & " تومان"
+			lbl_price_viesue(i).TextSize=lbl_price_viesue(i).TextSize + 1dip
+			lbl_price_viesue(i).TextColor=Colors.RGB(48,146,10)
+			lbl_price_viesue(i).Gravity=Gravity.CENTER
+			lbl_price_viesue(i).BringToFront
+										
+			Dim temp_name_kala As String=map1.Get("name_kala")
+										
+			If temp_name_kala.Length > 35 Then
+				lbl_name_viesue(i).Text=temp_name_kala.SubString2(0,35) & "..."
+			Else
+				lbl_name_viesue(i).Text=temp_name_kala
+			End If
+										
+			lbl_name_viesue(i).TextColor=Colors.Black
+			lbl_name_viesue(i).Gravity=Gravity.CENTER
+										
+			lbl_name_viesue(i).TextSize=13
+										
+			lbl_name_viesue(i).BringToFront
+										
+			Dim strick As RichString
+			Dim price_off_strick As String=toman.number(map1.Get("price")) & " تومان"
+			strick.Initialize(price_off_strick)
+			strick.Strikethrough(0,price_off_strick.Length)
+			lbl_price_off_viesue(i).Text=strick
+			lbl_price_off_viesue(i).TextSize=lbl_price_off_viesue(i).TextSize-1dip
+			lbl_price_off_viesue(i).TextColor=Colors.Red
+			lbl_price_off_viesue(i).Gravity=Gravity.CENTER
+			lbl_price_off_viesue(i).BringToFront
+										
+			If Activity.Height>1800 Then
+				lbl_price_viesue(i).TextSize=13
+				lbl_price_off_viesue(i).TextSize=12
+			End If
+										
+										#region تشخیص آدرس عکس
+			Dim url_pic As String=map1.Get("pic")
+			If url_pic.Trim.Contains("http://")=False Then
+				url_pic=Starter.dir_root_image_file_thumnail & map1.Get("pic")
+			End If
+										#end region
+			piccaso.Load("http",url_pic).Resize(img_viesue(i).Width,img_viesue(i).Height).Error(Starter.error_image).Placeholder(Starter.progress_image).SkipMemoryCache.Into(img_viesue(i))
+			panel_kala2(i).Background=color_panel_viesue
+			apc.SetElevation(panel_kala2(i),6)
+		Next
+		'								viesue_panel.FullScroll(True)
+		viesue_panel.Panel.Width=panel_kala2(panel_kala2.Length-1).Left + panel_kala2(panel_kala2.Length-1).Width
+'		function.hide_scrollbar_horizontal(viesue_panel)
+
+		Dim r As Reflector
+		r.Target = viesue_panel
+		r.RunMethod2("setHorizontalScrollBarEnabled", False, "java.lang.boolean")
+		
+							#end region
+		progress_spot.DisMissDialog
+		font_label
+		'بارگذاری اسلایدشو بعد از مطالب
+		get_slideshow
+	End If
+End Sub
+
+Sub func_get_category(lists As List)
+	If lists.Size > 0 Then
+						
+		#region   
+		Dim panel_kala(lists.Size) As Panel
+		Dim img_porfroush(lists.Size),im_mark_viesue(lists.Size) As ImageView
+		Dim lbl_name_porfroush(lists.Size),lbl_price_porfroush(lists.Size) As Label
+		Dim color_panel_porfroush As ColorDrawable
+		color_panel_porfroush.Initialize2(Colors.White,7dip,0dip,0xFF0FA2EC)
+								
+		For i=0 To lists.Size-1
+			Dim map1 As Map=lists.Get(i)
+			panel_kala(i).Initialize("panel_viesue")
+			panel_kala(i).Tag=map1.Get("id") & ";" & map1.Get("parent_id") & ";" & map1.Get("name_cat")
+			img_porfroush(i).Initialize("img_porfroush")
+			im_mark_viesue(i).Initialize("im_mark_viesue")
+			lbl_name_porfroush(i).Initialize("lbl_name_porfroush")
+			lbl_price_porfroush(i).Initialize("lbl_price_porfroush")
+									
+			If i=0 Then
+				viesue_panel.Panel.AddView(panel_kala(i),4dip,3dip,(viesue_panel.Width/2.5),viesue_panel.Height-5dip)
+			Else
+				viesue_panel.Panel.AddView(panel_kala(i),panel_kala(i-1).Left + panel_kala(i-1).Width + 6dip ,3dip,(viesue_panel.Width/2.5),viesue_panel.Height-5dip)
+			End If
+			panel_kala(i).AddView(img_porfroush(i),5dip,2dip,panel_kala(i).Width-10dip,panel_kala(i).Height/1.5)
+			panel_kala(i).AddView(lbl_name_porfroush(i),img_porfroush(i).Left,img_porfroush(i).Top + img_porfroush(i).Height,img_porfroush(i).Width,	(panel_kala(i).Height)-(img_porfroush(i).Height)	)
+			Dim temp_name_kala As String=map1.Get("name_cat")
+			If temp_name_kala.Length > 35 Then
+				lbl_name_porfroush(i).Text=temp_name_kala.SubString2(0,35) & "..."
+			Else
+				lbl_name_porfroush(i).Text=temp_name_kala
+			End If
+			lbl_name_porfroush(i).TextColor=Colors.Black
+			lbl_name_porfroush(i).Gravity=Gravity.CENTER
+										
+			lbl_name_porfroush(i).TextSize=11
+										
+			lbl_name_porfroush(i).BringToFront
+	
+		#region تشخیص آدرس عکس
+			Dim url_pic As String=map1.Get("pic_cat")
+			If url_pic.Trim.Contains("http://")=False Then
+				url_pic=Starter.dir_root_image_file_cat & map1.Get("pic_cat")
+			End If
+		#end region
+			piccaso.Load("http",url_pic).SkipMemoryCache.Into(img_porfroush(i))	'.Resize(img_porfroush(i).Width,img_porfroush(i).Height)
+			panel_kala(i).Background=color_panel_porfroush
+			apc.SetElevation(panel_kala(i),9)
+		Next
+		viesue_panel.Panel.Width=panel_kala(panel_kala.Length-1).Left + panel_kala(panel_kala.Length-1).Width
+									
+	End If
+	progress_spot.DisMissDialog
+				
+	font_label
+					
+	ChangeFontByLabelSize.MinimomFontLabel(btn_list_porfroush,13)
+	get_slideshow
+					
+	#end region
+End Sub
+
+Sub func_get_porfroush(lists As List)
+	Try
+		If lists.Size > 0 Then
+						
+			#region    اسلاید شو پرفروش ها
+			Dim panel_kala(lists.Size) As Panel
+			Dim img_porfroush(lists.Size),im_mark_viesue(lists.Size) As ImageView
+			Dim lbl_name_porfroush(lists.Size),lbl_price_porfroush(lists.Size) As Label
+			Dim color_panel_porfroush As ColorDrawable
+			color_panel_porfroush.Initialize2(Colors.White,0,0dip,0xFF0FA2EC)
+				
+			For i=0 To lists.Size-1
+				Dim map1 As Map=lists.Get(i)
+				panel_kala(i).Initialize("panel_porfroush")
+				panel_kala(i).Tag=map1.Get("code_kala")
+				img_porfroush(i).Initialize("img_porfroush")
+				im_mark_viesue(i).Initialize("im_mark_viesue")
+				lbl_name_porfroush(i).Initialize("lbl_name_porfroush")
+				lbl_price_porfroush(i).Initialize("lbl_price_porfroush")
+					
+				If i=0 Then
+					porfroush_panel.Panel.AddView(panel_kala(i),4dip,3dip,(porfroush_panel.Width/2.5),porfroush_panel.Height-5dip)
+				Else
+					porfroush_panel.Panel.AddView(panel_kala(i),panel_kala(i-1).Left + panel_kala(i-1).Width + 6dip ,3dip,(porfroush_panel.Width/2.5),porfroush_panel.Height-5dip)
+				End If
+				panel_kala(i).AddView(img_porfroush(i),5dip,2dip,panel_kala(i).Width-10dip,panel_kala(i).Height/2)
+				panel_kala(i).AddView(lbl_name_porfroush(i),img_porfroush(i).Left,img_porfroush(i).Top + img_porfroush(i).Height,img_porfroush(i).Width,(img_porfroush(i).Height/2)/1.1)
+				panel_kala(i).AddView(lbl_price_porfroush(i),0,lbl_name_porfroush(i).Top + lbl_name_porfroush(i).Height+5dip,panel_kala(i).Width,30dip)
+				panel_kala(i).AddView(im_mark_viesue(i),panel_kala(i).Width/2.5,0,panel_kala(i).Width-(panel_kala(i).Width/2.5),panel_kala(i).Height/2)
+					
+					#region	برچسب ویژه
+				Dim stut_viesue As Int=	map1.Get("stut_viesue")
+				If stut_viesue=1 Then
+					im_mark_viesue(i).Visible=True
+					lbl_price_porfroush(i).Visible=False
+					im_mark_viesue(i).Bitmap=LoadBitmap(File.DirAssets,"badge_list2.png")
+					im_mark_viesue(i).Gravity=Gravity.FILL
+				Else
+					im_mark_viesue(i).Visible=False
+				End If
+					#end region
+				lbl_price_porfroush(i).Text=toman.number(map1.Get("price")) & " تومان"
+				lbl_price_porfroush(i).TextColor=Colors.RGB(48,146,10)
+				lbl_price_porfroush(i).Gravity=Gravity.CENTER
+				lbl_price_porfroush(i).BringToFront
+				ChangeFontByLabelSize.MinimomFontLabel(lbl_price_porfroush(i),14)
+				Dim temp_name_kala As String=map1.Get("name_kala")
+				If temp_name_kala.Length > 35 Then
+					lbl_name_porfroush(i).Text=temp_name_kala.SubString2(0,35) & "..."
+				Else
+					lbl_name_porfroush(i).Text=temp_name_kala
+				End If
+				lbl_name_porfroush(i).TextColor=Colors.Black
+				lbl_name_porfroush(i).Gravity=Gravity.CENTER
+						
+				lbl_name_porfroush(i).TextSize=11
+						
+				lbl_name_porfroush(i).BringToFront
+				
+				#region تشخیص آدرس عکس
+				Dim url_pic As String=map1.Get("pic")
+				If url_pic.Trim.Contains("http://")=False Then
+					url_pic=Starter.dir_root_image_file_thumnail & map1.Get("pic")
+				End If
+						#end region
+				piccaso.Load("http",url_pic).SkipMemoryCache.Into(img_porfroush(i))
+				panel_kala(i).Background=color_panel_porfroush
+				apc.SetElevation(panel_kala(i),6)
+			Next
+			porfroush_panel.Panel.Width=panel_kala(panel_kala.Length-1).Left + panel_kala(panel_kala.Length-1).Width
+			progress_porfroosh.Visible=False
+		End If
+		progress_spot.DisMissDialog
+
+		font_label
+		splash.Visible=False
+		Panel1.Visible=True
+'		get_baners(2)
+		ChangeFontByLabelSize.MinimomFontLabel(btn_list_porfroush,13)
+	#end region
+	Catch
+		Log(LastException.Message)
+	End Try
+End Sub
+
+Sub func_get_slideshow(lists As List)
+		Dim lst1,lst2 As List
+		lst1.Initialize
+		lst2.Initialize
+		If lists.Size > 0 Then	
+			For i=0 To lists.Size-1
+				Dim map1 As Map=lists.Get(i)
+				
+			
+				#region تشخیص آدرس عکس
+					Dim url_pic As String=map1.Get("pic")
+					If url_pic.Trim.Contains("http://")=False Then
+				url_pic=Starter.dir_root_image_file_slideshow & map1.Get("pic")
+					End If
+				#end region
+				lst1.Add(url_pic)
+				lst2.Add(map1.Get("info"))
+			Next
+			
+		initialize_slideshow(	lst1 	)
+		End If		
+	bool_load_porfroush=False
+	get_porfroush
+End Sub
+
+Sub func_time_life_viesue(lists As List)
+	Dim lst As List
+	lst.Initialize
+	If lists.Size > 0 Then	
+		For i=0 To lists.Size-1
+			Dim map1 As Map=lists.Get(i)
+		Next
+		time_viesue=map1.Get("time_viesue")
+		get_time
+	End If
+End Sub
+
+
+
+Sub get_viesue
+	Log("get_viesue")
+	progress_spot.ShowDialog
+	connector.send_query($"SELECT DISTINCT * FROM  `kala` INNER JOIN  `viesue` ON  `kala`.`id` =  `viesue`.`code_kala` where `kala`.`number` >0 AND `show_kala`=1 ORDER BY  `code_kala` DESC LIMIT 0 , 8"$,"get_viesue","")
+End Sub
+
+Sub get_category
+	Log("get_category")
+	progress_spot.ShowDialog
+	connector.send_query($"SELECT * FROM  `category` where `parent_id`=0"$,"get_category","")
+End Sub
+		
+
+Sub get_porfroush
+	Log("get_porfroush")
+	connector.send_query($"SELECT DISTINCT * FROM `kala` INNER JOIN `por_froush` ON `kala`.`id`= `por_froush`.`code_kala` where `kala`.`number` > 0 AND `show_kala`=1 ORDER BY `code_kala` Desc LIMIT 0 , 8"$,"get_porfroush","")
+End Sub
+
+Sub get_slideshow
+	Log("get_slideshow")
+''	progress_spot.ShowDialog
+	connector.send_query($"SELECT * FROM `slide_show` where `device`='1'"$,"get_slideshow","")
+End Sub
+
+Sub time_life_viesue
+	Log("time_life_viesue")
+	progress_spot.ShowDialog
+	connector.send_query($"SELECT * FROM `time_viesue`"$,"time_life_viesue","")
+End Sub
+
+Sub get_time
+	progress_spot.ShowDialog
+	connector.send_query($"time"$,"get_time","")
+End Sub
+
+'برای لود در زمان اسکرول
+'Sub ScrollView1_ScrollChanged(Position As Int)
+''If Position>=viesue_panel.Top And bool_load_porfroush=True Then
+''	bool_load_porfroush=False
+'
+''End If
+'
+'End Sub
+#Region ///////////////////////////////////////////////////////////////////////////////slideshow
+
+#End Region
+
+Sub baner_toch(response As String)
+	If response.Length > 0 Then
+		If IsNumber(response)=True Then 
+			Dim code_kala As Int=response
+			info_kala.code_kala=code_kala
+			StartActivity(info_kala)
+		Else
+			Dim  Pd As ParsMSGBOX
+			Pd=function.style_msgbox2("اطلاعیه","response")
+			Pd.Create
+		End If
+	End If
+	'ToastMessageShow(response,False)
+End Sub
+
+
+
+
+Sub font_label
+	
+	
+	For Each view1 As View In Activity.GetAllViewsRecursive
+		If view1 Is Label Then
+'			Log(view1)
+			Dim label_font As Label
+			label_font=view1
+			Try
+'				If label_font.Tag="Title" Then
+'					Dim rch As RichString
+'					rch.Initialize("{c1}" & "محصولات" & "{c1} {c2}" & "پرفروش" & "{c2}")
+'					rch.Color2(0xFF1064C6,"{c1}")
+'					rch.Color2(0xFFF00689,"{c2}")
+'					label_font.Text=rch
+'					label_font.Typeface=Typeface.LoadFromAssets("shekasteh.ttf")
+'				else If label_font.Tag="Title2" Then
+'					Dim rch2 As RichString
+'					rch2.Initialize("{c1}" & "دسته بندی" & "{c1} {c2}" & "محصولات ما" & "{c2}")
+'					rch2.Color2(0xFF1064C6,"{c1}")
+'					rch2.Color2(0xFFF00689,"{c2}")
+'					label_font.Text=rch2
+'					label_font.Typeface=Typeface.LoadFromAssets("shekasteh.ttf")
+'				Else
+'					label_font.Typeface=Starter.font_body
+'				End If
+			
+			Catch
+				label_font.Typeface=Starter.font_body
+'				Log("ERROR FONT")
+			End Try
+		End If
+		
+	Next
+	initialize_awsome
+	
+End Sub
+
+Sub initialize_awsome
+	btn_menu.Typeface=Starter.Font_Awsome
+	btn_sabad.Typeface=Starter.Font_Awsome
+	btn_share.Typeface=Starter.Font_Awsome
+	btn_search.Typeface=Starter.Font_Awsome
+End Sub
+
+#region    محصول 
+
+'///////////////////////////پرفروش
+Sub panel_porfroush_Touch (Action As Int, X As Float, Y As Float)
+	Dim pnl As Panel
+	pnl.Initialize("")
+	If Action=1 Then
+		pnl=Sender
+		info_kala.code_kala=pnl.Tag
+		StartActivity(info_kala)
+	End If
+End Sub
+
+Sub panel_viesue_Touch (Action As Int, X As Float, Y As Float)
+	Dim pnl As Panel
+	pnl.Initialize("")
+	If Action=1 Then
+		pnl=Sender
+'		info_kala.code_kala=pnl.Tag
+'		StartActivity(info_kala)
+		Dim value As Object=pnl.Tag
+		Dim arr_temp() As String
+		arr_temp=Regex.Split(";",value)
+		show_list_kala.cat_name=arr_temp(2)'نام گروه
+		show_list_kala.bool_cat=True
+		show_list_kala.bool_news_list=False
+		show_list_kala.bool_porfroush=False
+		show_list_kala.code_cat=arr_temp(0)'کد گروه
+		show_list_kala.code_sub_cat=arr_temp(1)'کد زیر گروه
+		StartActivity(show_list_kala)
+	End If
+End Sub
+#end region
+
+
+Sub Panel_slider_ScrollChanged(Position As Int)
+End Sub
+
+
+Sub btn_share_Click
+	Dim share As AriaLib
+	StartActivity(share.ShareApplication(Application.PackageName,Application.LabelName))
+End Sub
+
+#region searcheble
+Sub Activity_Resume
+	Log("bool_click_link: " & bool_click_link)
+	If AriaLib1.TestInterntConnection=True Then
+		
+	
+		If bool_click_link=False Then  'direct az telegram
+'			Initialize_menu
+		
+		
+		
+			If checked_update=True Then
+			
+				If porfroush_panel.Panel.NumberOfViews < 1 Then
+					porfroush_panel.Panel.RemoveAllViews
+					get_porfroush
+				End If
+				'			@Not used
+				'			If viesue_panel.Panel.NumberOfViews < 1 Then
+				'				viesue_panel.Panel.RemoveAllViews
+				'		'		time_life_viesue'StartService(service_get_db)
+				'				get_category
+				'			End If
+			End If 'checked_update
+		
+		
+			If Result.SearchState=Result.SS_RESULT_SUCCESS Then
+				'ToastMessageShow(Result.SearchResult,True)
+				show_list_kala.bool_search=True
+				show_list_kala.query_search=Result.SearchResult
+				StartActivity(show_list_kala)
+				show_list_kala.bool_search=False
+				Result.SearchState=Result.SS_NONE
+			End If
+			If File.Exists(myLibrary.rute,name_dat)=True And checked_update=True Then	check_account
+		
+			If File.Exists(myLibrary.rute,Starter.filename_sabad)=True Then
+				list_kala.Initialize
+				list_kala=File.ReadList(myLibrary.rute,Starter.filename_sabad)
+				lbl_badge.Text=list_kala.Size
+				lbl_badge.Visible=True
+				If list_kala.Size<=0 Then lbl_badge.Visible=False
+			Else
+				lbl_badge.Visible=False
+			End If
+			
+		End If
+	
+	End If
+End Sub
+	
+Sub btn_search_Click
+		RequestSearchBar
+End Sub
+	
+Sub RequestSearchBar
+	 Dim ref As Reflector
+	 ref.Target = ref.GetActivity
+	 ref.RunPublicmethod("onSearchRequested", Null, Null)
+End Sub
+#end region
+
+
+
+Sub btn_list_porfroush_Click
+'	show_list_kala.bool_porfroush=True
+'	show_list_kala.cat_name="لیست کامل پرفروشترین ها"
+	'	StartActivity(show_list_kala)
+	catgory.bool_brand_layout=False
+	StartActivity(catgory)
+End Sub
+
+
+Sub Register_push
+	CallSubDelayed2(PushService, "RegisterDevice", False)
+End Sub
+
+
+
+
+
+
+
+#Region Slider
+Sub initialize_slideshow(list_url As List)
+	Dim p_img(list_url.Size) As ImageView'//////////////////////////
+	pa.Initialize
+	For i = 0 To list_url.Size-1
+		p_img(i).Initialize("")
+		Target1(list_url.Get(i),p_img(i))
+		pa.AddPage(p_img(i)) 'map_info_baner.GetkeyAt(i)
+	Next
+	pb.Initialize(pa,"pb1")
+	'pb.setDotsColor(Colors.Red,Colors.Black)
+	pb.Transition = pb.ZOOM_OUT_SIDE
+	Panel_slider.AddView(pb,0,0,100%x,Panel_slider.Height)
+	'	Dim panel_pos As Panel=pa.GetPageObject(0)
+	timer_slide.Initialize("timer_slide",Starter.timer_slideshow)
+	timer_slide.Enabled=True
+End Sub
+
+Sub timer_slide_Tick
+	If timer_slide.IsInitialized=True Then
+		Dim count As Int=pa.Count-1
+		pb.GotoPage(index_slider)
+		If index_slider >=count Then
+			index_slider=0
+		
+		Else
+			index_slider=index_slider+1
+		End If
+	Else
+		timer_slide.Initialize("timer_slide",Starter.timer_slideshow)
+		timer_slide.Enabled=True
+	End If
+
+End Sub
+
+Sub Target1(img As String, Tag As Object)
+	Dim image_view As ImageView=Tag
+	'	Glide.Load("http", img ).AsBitmap.SkipMemoryCache(True).Into(image_view)
+	piccaso.Load("http",img).Into(image_view)
+	'.Resize(image_view.Width,image_view.Height).CenterInside
+	image_view.Gravity=Gravity.FILL
+End Sub
+
+#end Region
+
+
+
+Sub  timer_splash_Tick
+	timer_splash.Enabled=False
+	splash.Visible=False
+End Sub
+
+
+
+
+
+
+
+
+
+#Region   منو
+
+Public Sub Initialize_menu
+	If MD.IsInitialized=False Then
+		LogColor("initialize MD",Colors.Red)
+		Dim pnlHdr As Panel
+		pnlHdr.Initialize("")
+		pnlHdr.Color = Colors.DarkGray
+		pnlHdr.Tag = "Header"
+		
+		Dim MSP1 As MSProfile
+		Dim PDB1 As BitmapDrawable : PDB1.Initialize(LoadBitmap(File.DirAssets,"profile3.jpg"))
+		
+		If File.Exists(myLibrary.rute,name_dat)=True Then
+		
+			user_info.Initialize
+			user_info=File.ReadList(myLibrary.rute,name_dat)
+			
+			Dim id_shared As String="اشتراک "  & (user_info.Get(3) + 100)
+			MSP1.withName(user_info.Get(1) & " " & user_info.Get(2) ).withEmail(id_shared ).withIcon(PDB1)
+		Else
+			MSP1.withName("کاربر مهمان").withEmail("").withIcon(PDB1)
+		End If
+		#region
+		'2
+		'		Dim MSP2 As MSProfile
+		'		Dim PDB2 As BitmapDrawable : PDB2.Initialize(LoadBitmap(File.DirAssets,"wallet.png"))
+		'		MSP2.withName("اعتبار شما").withEmail($"${toman.number(money_wallet)} تومان)"$).withIcon(PDB2)
+		#end region
+		Dim Profiles(1) As MSProfile
+		Profiles(0) = MSP1
+		'2
+		'		Profiles(1) = MSP2
+		
+		Dim msa As MSAccountHeaderBuilder
+		Dim HeaderBackground As BitmapDrawable
+		
+		
+		HeaderBackground.Initialize(LoadBitmap(File.DirAssets,"header.jpg"))
+		
+		msa.Initialize("MSA")
+		msa.addProfiles(Profiles)
+		msa.withHeaderBackground(HeaderBackground)
+		Dim MaterialHeaderResult As Object = msa.build
+		
+		Dim color_object_menu As Int=Starter.color_base
+		Dim p1 As MSIconicDrawable : p1.Initialize("gmd_home")  : p1.Color = color_object_menu
+		Dim p2 As MSIconicDrawable : p2.Initialize("gmd_drafts"): p2.Color = color_object_menu
+		Dim p3 As MSIconicDrawable : p3.Initialize("faw_fire"): p3.Color = color_object_menu
+		Dim p4 As MSIconicDrawable : p4.Initialize("faw_dot_circle_o") : p4.Color = color_object_menu
+		Dim p5 As MSIconicDrawable : p5.Initialize("faw_clock_o") : p5.Color = color_object_menu
+		Dim p6 As MSIconicDrawable : p6.Initialize("faw_phone") : p6.Color = color_object_menu
+		Dim p7 As MSIconicDrawable : p7.Initialize("faw_anchor") : p7.Color = color_object_menu
+		Dim p8 As MSIconicDrawable : p8.Initialize("faw_barcode") : p8.Color = color_object_menu
+		Dim p9 As MSIconicDrawable : p9.Initialize("faw_hand_o_left") : p9.Color = color_object_menu
+		Dim p10 As MSIconicDrawable : p10.Initialize("faw_close") : p10.Color = color_object_menu
+		Dim p11 As MSIconicDrawable : p11.Initialize("faw_group") : p11.Color = color_object_menu
+		Dim p12 As MSIconicDrawable : p12.Initialize("faw_flag") : p12.Color = color_object_menu
+		
+		'		Dim s1 As MSIconicDrawable : s1.Initialize("gmd_person") : s1.Color = 0xffff4081
+		Dim s2 As MSIconicDrawable : s2.Initialize("gmd_help") : s2.Color = color_object_menu
+		
+		MDB.Initialize("MD")
+		MDB.withAccountHeader(MaterialHeaderResult)
+		'MDB.withHeader(pnlHdr, -1, 80dip)
+		
+		'		MDB.AddPrimaryDrawerItem  ("صفحه اصلی"  ,p1 .Drawable ,Null ,"" ,True,1,"")
+		
+		If File.Exists(myLibrary.rute,name_dat)=False Then
+			MDB.AddPrimaryDrawerItem  ("ورود یا ثبت نام" , p9.Drawable ,Null ,""   ,True,1, "")
+		Else
+			
+			MDB.AddPrimaryDrawerItem  ("پروفایل" , p11.Drawable ,Null ,""   ,True,2, "")
+			MDB.AddPrimaryDrawerItem  ("تاریخچه خرید"  , p5.Drawable ,Null ,"" ,True,3, "")
+			MDB.AddPrimaryDrawerItem  ("خروج از حساب کاربری" , p10.Drawable ,Null ,""   ,True,4, "")
+		End If
+		MDB.AddPrimaryDrawerItem  ("شرکت های تولید کننده" , p3.Drawable ,Null ,""   ,True,5, "")
+		MDB.AddPrimaryDrawerItem  ("پرفروش ترین ها" , p12.Drawable ,Null ,""   ,True,6, "")
+		MDB.AddPrimaryDrawerItem  ("جدیدترین ها" , p4.Drawable ,Null ,""   ,True,7, "")
+		MDB.AddSectionDrawerItem  (Starter.root_site  ,True)
+		MDB.AddSecondaryDrawerItem("درباره سازنده" ,p7.Drawable ,Null ,""    ,True ,8)
+		MDB.AddSecondaryDrawerItem("ارتباط با فروشنده در تلگرام" ,p6.Drawable ,Null ,""    ,True ,9)
+		MDB.AddSecondaryDrawerItem("نسخه " & Application.VersionName       ,p8.Drawable   ,Null ,""    ,False,0)
+		MDB.withDrawerGravity(Gravity.RIGHT)
+		
+		MD = MDB.Build
+		
+	End If
+End Sub
+
+#region menu
+
+
+Sub MSA_ProfileChanged(profile As MSProfile)
+	Log("MSA_ProfileChanged")
+	If function.is_admin=True Then
+		 StartActivity(shared_admin)
+	End If
+End Sub
+
+Sub  MSA_ProfileClicked(profile As MSProfile)
+	Log("MSA_ProfileClicked")
+End Sub
+
+Sub MD_ItemClick(Position As Int, Identifier As Int)
+	Log(Position & "\" & Identifier)
+	Select Identifier
+		
+		Case 1
+			myLibrary.SetAnimation("file2","file1")
+			StartActivity(reg_login)
+			Activity.Finish
+			
+		Case 2
+			StartActivity(update_users)
+			
+		Case 3
+			If File.Exists(myLibrary.rute,Starter.filename_user) Then
+				Dim lst_user As List=File.ReadList(myLibrary.rute,Starter.filename_user)
+				history_order.id_user=lst_user.Get(3)
+				Log("id_user" & lst_user.Get(3))
+				StartActivity(history_order)
+			Else 'اگر عضو نبود
+				Dim  Pd As ParsMSGBOX
+				Pd=function.style_msgbox("توجه","شما وارد حساب کاربری خود نشدید.اگر عضو نیستید میتوانید رایگان ثبتنام کنید","ورد یا ثبت نام","","انصراف")
+				Dim r  As Int = Pd.Create
+				If r=DialogResponse.POSITIVE Then
+					StartActivity(reg_login)
+				End If
+			End If
+			
+		Case 4
+			Dim  Pd As ParsMSGBOX
+			Pd=function.style_msgbox("","آیا میخواهید از حساب کاربری خود خارج شوید؟","بله","خیر","")
+			Dim res As Int = Pd.Create
+			If res=DialogResponse.POSITIVE Then
+				File.Delete(myLibrary.rute,name_dat)
+'				Initialize_menu
+'				StartActivity(Me)
+				Activity.Finish
+			End If
+			
+		Case 5
+			catgory.bool_brand_layout=True
+			StartActivity(catgory)
+			
+		Case 6
+			show_list_kala.bool_porfroush=True
+			StartActivity(show_list_kala)
+			
+		Case 7
+			show_list_kala.bool_porfroush=False
+			show_list_kala.bool_brand_layout=False
+			show_list_kala.bool_news_list=True
+			show_list_kala.cat_name="جدیدترین ها"
+			StartActivity(show_list_kala)'جدیدترین ها
+	 
+		Case 8
+			Dim i As Intent
+			i.Initialize(i.ACTION_VIEW,"https://t.me/padideh_sazan")
+			StartActivity(i)
+			
+		Case 9
+			Dim i As Intent
+			i.Initialize(i.ACTION_VIEW,"https://t.me/info_hpk")
+			StartActivity(i)
+	
+	End Select
+	
+End Sub
+
+Public Sub is_login() As Boolean
+	If File.Exists(myLibrary.rute,name_dat)=True Then
+		Return True
+	Else
+		Return False
+	End If
+End Sub
+
+Public Sub get_info_user(index As Int) As String
+	If File.Exists(myLibrary.rute,name_dat)=True Then
+		Dim user_info As List
+		user_info.Initialize
+		user_info=File.ReadList(myLibrary.rute,name_dat)
+		Return user_info.Get(index)
+	Else
+		Log("NOT FILE USER")
+	End If
+End Sub
+#end region
+
+
+#End Region
+
+
+
+
+#Region pezeshk
+Sub btn_p3_Click
+	StartActivity(insert_noskhe)
+End Sub
+Sub btn_p2_Click
+	StartActivity(rezerv)
+End Sub
+Sub btn_p1_Click
+	StartActivity(show_noskhe)
+End Sub
+#End Region
+
+
+
+Sub img_cat1_Click
+	show_list_kala.cat_name="پمادها"	'نام گروه
+	show_list_kala.bool_cat=True
+	show_list_kala.bool_news_list=False
+	show_list_kala.bool_porfroush=False
+	show_list_kala.code_cat=4'کد گروه
+	show_list_kala.code_sub_cat=0'کد زیر گروه
+	StartActivity(show_list_kala)
+End Sub
+Sub img_cat2_Click
+	show_list_kala.cat_name="روغن ها"	'نام گروه
+	show_list_kala.bool_cat=True
+	show_list_kala.bool_news_list=False
+	show_list_kala.bool_porfroush=False
+	show_list_kala.code_cat=5'کد گروه
+	show_list_kala.code_sub_cat=0'کد زیر گروه
+	StartActivity(show_list_kala)
+End Sub
+
+Sub img_cat3_Click
+	show_list_kala.cat_name=" عرقیات"	'نام گروه
+	show_list_kala.bool_cat=True
+	show_list_kala.bool_news_list=False
+	show_list_kala.bool_porfroush=False
+	show_list_kala.code_cat=1'کد گروه
+	show_list_kala.code_sub_cat=0'کد زیر گروه
+	StartActivity(show_list_kala)
+End Sub
+Sub img_cat4_Click
+	show_list_kala.cat_name=" آموزش ها"	'نام گروه
+	show_list_kala.bool_cat=True
+	show_list_kala.bool_news_list=False
+	show_list_kala.bool_porfroush=False
+	show_list_kala.code_cat=6'کد گروه
+	show_list_kala.code_sub_cat=0'کد زیر گروه
+	StartActivity(show_list_kala)
+End Sub
+Sub img_cat5_Click
+	show_list_kala.cat_name="دمنوش"	'نام گروه
+	show_list_kala.bool_cat=True
+	show_list_kala.bool_news_list=False
+	show_list_kala.bool_porfroush=False
+	show_list_kala.code_cat=3'کد گروه
+	show_list_kala.code_sub_cat=0'کد زیر گروه
+	StartActivity(show_list_kala)
+End Sub
+Sub img_cat6_Click
+	show_list_kala.cat_name="داروها"	'نام گروه
+	show_list_kala.bool_cat=True
+	show_list_kala.bool_news_list=False
+	show_list_kala.bool_porfroush=False
+	show_list_kala.code_cat=2'کد گروه
+	show_list_kala.code_sub_cat=0'کد زیر گروه
+	StartActivity(show_list_kala)
+End Sub
+
+Sub splash_Touch (Action As Int, X As Float, Y As Float)
+	
+End Sub

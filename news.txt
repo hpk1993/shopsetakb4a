@@ -1,0 +1,87 @@
+﻿Sub func_get_news(lists As List)
+			If lists.Size > 0 Then
+						
+							#region    اسلاید شو پرفروش ها
+							Dim panel_kala(lists.Size) As Panel
+								Dim img_porfroush(lists.Size),im_mark_viesue(lists.Size) As ImageView
+								Dim lbl_name_porfroush(lists.Size),lbl_price_porfroush(lists.Size) As Label
+								Dim color_panel_porfroush As ColorDrawable
+								color_panel_porfroush.Initialize2(Colors.White,15,1dip,0xFF0FA2EC)
+								
+								For i=0 To lists.Size-1
+									Dim map1 As Map=lists.Get(i)
+									panel_kala(i).Initialize("panel_porfroush")
+									panel_kala(i).Tag=map1.Get("id")
+									img_porfroush(i).Initialize("img_porfroush")
+									im_mark_viesue(i).Initialize("im_mark_viesue")
+									lbl_name_porfroush(i).Initialize("lbl_name_porfroush")
+									lbl_price_porfroush(i).Initialize("lbl_price_porfroush")
+									
+									If i=0 Then
+										viesue_panel.Panel.AddView(panel_kala(i),0,3dip,(viesue_panel.Width/3.5)-10dip,viesue_panel.Height-5dip)
+									Else
+										viesue_panel.Panel.AddView(panel_kala(i),panel_kala(i-1).Left + panel_kala(i-1).Width + 15dip ,3dip,(viesue_panel.Width/3.5)-10dip,viesue_panel.Height-5dip)
+									End If
+									panel_kala(i).AddView(img_porfroush(i),5dip,2dip,panel_kala(i).Width-10dip,panel_kala(i).Height/2)
+									panel_kala(i).AddView(lbl_name_porfroush(i),img_porfroush(i).Left,img_porfroush(i).Top + img_porfroush(i).Height,img_porfroush(i).Width,(img_porfroush(i).Height/2)/1.1)
+									panel_kala(i).AddView(lbl_price_porfroush(i),0,lbl_name_porfroush(i).Top + lbl_name_porfroush(i).Height+5dip,panel_kala(i).Width,30dip)
+									panel_kala(i).AddView(im_mark_viesue(i),0,panel_kala(i).Height/1.3,panel_kala(i).Width/2,panel_kala(i).Height/3.8)
+									
+									#region	برچسب ویژه
+										Dim stut_viesue As Int=	map1.Get("stut_viesue")
+										If stut_viesue=1 Then
+											im_mark_viesue(i).Visible=True
+											lbl_price_porfroush(i).Visible=False
+											im_mark_viesue(i).Bitmap=LoadBitmap(File.DirAssets,"badge_product.png")
+											im_mark_viesue(i).Gravity=Gravity.FILL
+										Else
+											im_mark_viesue(i).Visible=False	
+										End If
+									#end region
+										lbl_price_porfroush(i).Text=toman.number(map1.Get("price")) & " تومان"
+										lbl_price_porfroush(i).TextColor=Colors.RGB(48,146,10)
+										lbl_price_porfroush(i).Gravity=Gravity.CENTER
+										lbl_price_porfroush(i).BringToFront
+										ChangeFontByLabelSize.MinimomFontLabel(lbl_price_porfroush(i),14)
+										Dim temp_name_kala As String=map1.Get("name_kala")
+										If temp_name_kala.Length > 35 Then
+											lbl_name_porfroush(i).Text=temp_name_kala.SubString2(0,35) & "..."
+										Else
+											lbl_name_porfroush(i).Text=temp_name_kala
+										End If
+										lbl_name_porfroush(i).TextColor=Colors.Black
+										lbl_name_porfroush(i).Gravity=Gravity.CENTER
+										
+										lbl_name_porfroush(i).TextSize=12
+										
+										lbl_name_porfroush(i).BringToFront
+										
+										If Activity.Height>1800 Then
+											lbl_price_porfroush(i).TextSize=13
+											im_mark_viesue(i).Top=panel_kala(i).Height/1.4
+											im_mark_viesue(i).Height=panel_kala(i).Height/3.1
+											im_mark_viesue(i).Width=panel_kala(i).Width/2
+										End If
+										
+										#region تشخیص آدرس عکس
+										Dim url_pic As String=map1.Get("pic")
+										If url_pic.Trim.Contains("http://")=False Then
+											url_pic=dir_root_image_file & map1.Get("pic")
+										End If
+										#end region
+										piccaso.LoadUrl(url_pic).SkipCache.Resize(img_porfroush(i).Width,img_porfroush(i).Height).CenterInside.IntoImageView(img_porfroush(i))
+									panel_kala(i).Background=color_panel_porfroush
+								Next
+'								porfroush_panel.FullScroll(True)
+								viesue_panel.Panel.Width=panel_kala(panel_kala.Length-1).Left + panel_kala(panel_kala.Length-1).Width
+								
+					End If
+					dialogprog.Hide
+				
+					font_label
+					
+					ChangeFontByLabelSize.MinimomFontLabel(btn_list_porfroush,13)
+					get_slideshow
+					
+					#end region
+End Sub
